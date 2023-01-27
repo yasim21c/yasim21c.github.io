@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_first"]=self["webpackChunkvue_first"]||[]).push([[885],{5114:function(e,t,u){u.r(t),u.d(t,{default:function(){return o}});var n=u(3396),r=u(2268);function s(e,t,u,s,a,f){return(0,n.wg)(),(0,n.iD)("div",null," 메뉴222 "+(0,r.zw)(a.sample),1)}var a={components:{},data(){return{sample:"ffff"}},setup(){},created(){this.sample=this.$route.query.name},watch:{$route(e){this.sample=this.$route.query.name}},mounted(){},unmounted(){},methods:{}},f=u(89);const i=(0,f.Z)(a,[["render",s]]);var o=i}}]);
+//# sourceMappingURL=menu2.ae3517fd.js.map

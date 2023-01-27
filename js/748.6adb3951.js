@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvue_first"]=self["webpackChunkvue_first"]||[]).push([[748],{9748:function(u,n,e){e.r(n),e.d(n,{default:function(){return c}});var t=e(3396),r=e(2268);const l=(0,t._)("br",null,null,-1);var a={__name:"Branch2View",setup(u){const{ref:n}=e(4870),a=n("default"),s=()=>{a.value="네버다이"};return(u,n)=>{const e=(0,t.up)("Button");return(0,t.wg)(),(0,t.iD)("div",null,[(0,t.Uk)((0,r.zw)(a.value)+" ",1),l,(0,t.Wm)(e,{onClick:s,label:"TEST1"})])}}};const s=a;var c=s}}]);
+//# sourceMappingURL=748.6adb3951.js.map
