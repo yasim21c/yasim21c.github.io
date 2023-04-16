@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .leaflet-container {
+        height: 400px;
+        width: 600px;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" style="width: 100%; height: 800px"></div>
+    <script>
+      // 위도
+      var lat = 36.30758508959878;
+
+      // 경도
+      var lon = 127.33517637533372;
+
+      const map = L.map("map").setView([lat, lon], 14);
+
+      // https://tile.openstreetmap.org/{z}/{x}/{y}.png
+      const tiles = L.tileLayer(
+        "http://api.vworld.kr/req/wmts/1.0.0/F033F323-7F0C-37A7-8D9F-2DD5E53DC6AC/Base/{z}/{y}/{x}.png",
+        {
+          minZoom: 6,
+          maxZoom: 19,
+          // attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }
+      ).addTo(map);
+
+      const marker = L.marker([36.30585139761643, 127.34274009766004])
+        .addTo(map)
+        .bindPopup("<b>Hello world!</b><br />I am a popup.")
+        .openPopup();
+
+      const marker2 = L.marker([36.30628640350458, 127.33872259364357])
+        .addTo(map)
+        .bindPopup("<b>Hello world!</b><br />I am a popup2222222222.")
+        .openPopup();
+
+      const circle = L.circle([36.30667542282083, 127.32519628204729], {
+        color: "red",
+        fillColor: "#f03",
+        fillOpacity: 0.5,
+        radius: 500,
+      })
+        .addTo(map)
+        .bindPopup("원,.,.,.");
+
+      const polygon = L.polygon(
+        [
+          [lat, lon],
+          [36.30771455452742, 127.34038778050628],
+          [36.304938882495925, 127.3403979852972],
+          [36.30369014458462, 127.33902311038717],
+          [36.30484602557501, 127.33498651147386],
+        ],
+        {
+          color: "yellow",
+          fillColor: "blue",
+          fillOpacity: 0.3,
+          radius: 500,
+        }
+      )
+        .addTo(map)
+        .bindPopup("다각형<br>다각형<br><b>다각형</b><br>다각형<br>");
+
+      const popup = L.popup()
+        .setLatLng([lat, lon])
+        .setContent("I am a standalone popup.")
+        .openOn(map);
+
+      function onMapClick(e) {
+        popup
+          .setLatLng(e.latlng)
+          .setContent(`클릭 위치 : ${e.latlng.toString()}`)
+          .openOn(map);
+      }
+
+      map.on("click", onMapClick);
+    </script>
+  </body>
+</html>
